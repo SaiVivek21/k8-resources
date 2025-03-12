@@ -8,3 +8,4 @@ parameters:
   fileSystemId: fs-0e2b1a8bb6f2a7568
   directoryPerms: "700"
   basePath: "/expense"
+  
