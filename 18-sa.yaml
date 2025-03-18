@@ -1,15 +1,15 @@
 kind: Pod
 apiVersion: v1
 metadata:
-  name: sa-demo 
+  name: sa-demo
   namespace: expense
 spec:
   # one pod can contain multiple containers
   serviceAccount: expense-mysql-secret
   initContainers:
-  - name: awscli 
+  - name: awscli
     image: amazon/aws-cli
-    command: ['sh', 'c', 'aws secretsmanager get-secret-value --secret-id expense/mysql/creds --query SecretString --output text > /secrets/.env ']
+    command:  ['sh', '-c', 'aws secretsmanager get-secret-value --secret-id expense/mysql/creds --query SecretString --output text > /secrets/.env ']
     volumeMounts:
     - mountPath: /secrets
       name: secret-volume
